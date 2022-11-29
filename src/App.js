@@ -1,17 +1,27 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  createBrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import "./App.css";
+import "./bootstrap.css";
+import {
+  CreateFormPage,
+  HomePage,
+  NavFooter,
+  NavHeader,
+  PageNotFound,
+} from "./components/routes";
 
 function App() {
   return (
-    <div className="App">
-      <form></form>
-    </div>
+    <BrowserRouter>
+      <NavHeader />
+      <div className="container-fluid">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/createform" element={<CreateFormPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
+      <NavFooter />
+    </BrowserRouter>
   );
 }
 

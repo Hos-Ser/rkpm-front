@@ -1,0 +1,21 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const NavHeader = () => {
+  return (
+    <nav className="navbar navbar-expand bg-light">
+      <div className="container-fluid collapse navbar-collapse">
+        <div class="navbar-nav">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+          <Link to="/createform" className="nav-link">
+            Create From
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavHeader;
