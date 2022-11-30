@@ -1,7 +1,16 @@
 import React from "react";
 
+import { DashboardRk } from "../index";
+
 const HomePage = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <DashboardRk>
+        <div></div>
+        <div></div>
+      </DashboardRk>
+    </>
+  );
 };
 
 export default HomePage;

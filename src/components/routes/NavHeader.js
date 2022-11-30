@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavHeader = () => {
   return (
-    <nav className="navbar navbar-expand bg-light">
+    <nav className="navbar navbar-expand bg-light" style={{ height: "8vh" }}>
       <div className="container-fluid collapse navbar-collapse">
         <div className="navbar-nav">
           <Link to="/" className="nav-link">

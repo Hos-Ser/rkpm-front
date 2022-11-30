@@ -1,8 +1,5 @@
 main {
   display: flex;
-  /* flex-wrap: nowrap; */
-  height: 100vh;
-  /* height: -webkit-fill-available; */
-  /* max-height: 100vh; */
-  /* overflow: hidden; */
+  height: 92vh;
+  width: 100%;
 }

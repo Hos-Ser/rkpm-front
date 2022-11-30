@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./bootstrap.css";
 import {
-  CreateFormPage,
+  BuildFormPage,
   HomePage,
   NavHeader,
   PageNotFound,
@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/createform" element={<CreateFormPage />} />
+          <Route path="/createform" element={<BuildFormPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
