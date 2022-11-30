@@ -5,7 +5,7 @@ const NavHeader = () => {
   return (
     <nav className="navbar navbar-expand bg-light">
       <div className="container-fluid collapse navbar-collapse">
-        <div class="navbar-nav">
+        <div className="navbar-nav">
           <Link to="/" className="nav-link">
             Home
           </Link>
