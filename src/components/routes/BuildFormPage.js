@@ -52,7 +52,7 @@ const BuildFormPage = () => {
         </ButtonRk>
         <hr />
         <ButtonRk color={"primary"} style={{ width: "100%" }}>
-          متنی با پاسخ بلند
+          صفحه تشکر
         </ButtonRk>
       </DashboardRk>
       <div

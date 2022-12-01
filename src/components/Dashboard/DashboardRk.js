@@ -1,12 +1,14 @@
 import React from "react";
 
-const DashboardRk = ({ children, width = "20%", style, ...otherParams }) => {
+const DashboardRk = ({ children, style, ...otherParams }) => {
   return (
     <div
-      className="d-grid flex-column flex-shrink-0 p-3"
+      className="d-flex flex-column flex-shrink-0 p-3"
       style={{
+        position: "relative",
+        alignContent: "center",
         backgroundColor: "#e9ecef",
-        width: width,
+        width: "20%",
         ...style,
         overflow: "auto",
       }}

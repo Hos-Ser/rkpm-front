@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DashboardRk, ButtonRk } from "../index";
+import { DashboardRk, ButtonRk, TextAreaRk, TextInputRk } from "../index";
 import "./ModalRk.css";
 
 const ModalRk = ({ setVisible }) => {
@@ -8,12 +8,19 @@ const ModalRk = ({ setVisible }) => {
     <>
       <div className="modal-bg" onClick={() => setVisible(false)} />
       <div className="centered">
-        <div className="my-modal" style={{}}>
+        <div className="my-modal">
           <DashboardRk
             style={{ borderTopLeftRadius: 16, borderBottomLeftRadius: 16 }}
           >
-            <ButtonRk className="btn-close" onClick={() => setVisible(false)} />
-            <ButtonRk color={"success"} style={{}}></ButtonRk>
+            <ButtonRk
+              className="btn-close mb-2"
+              onClick={() => setVisible(false)}
+            />
+            <TextInputRk />
+            <TextAreaRk />
+            <ButtonRk color={"success"} style={{ bottom: 0 }}>
+              ذخیره
+            </ButtonRk>
           </DashboardRk>
         </div>
       </div>
