@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/createform" element={<BuildFormPage />} />
+          <Route path="/buildform" element={<BuildFormPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>

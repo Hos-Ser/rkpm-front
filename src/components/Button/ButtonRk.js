@@ -4,8 +4,7 @@ const ButtonRk = ({ children, color, ...otherParams }) => {
   return (
     <button
       type={"button"}
-      className={`btn btn-${color}`}
-      style={{ width: "100%" }}
+      className={`btn btn-${color} my-1`}
       {...otherParams}
     >
       {children}

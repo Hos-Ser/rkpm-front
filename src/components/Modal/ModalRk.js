@@ -3,21 +3,17 @@ import React from "react";
 import { DashboardRk, ButtonRk } from "../index";
 import "./ModalRk.css";
 
-const ModalRk = ({ setIsOpen }) => {
+const ModalRk = ({ setVisible }) => {
   return (
     <>
-      <div className="modal-bg" onClick={() => setIsOpen(false)} />
+      <div className="modal-bg" onClick={() => setVisible(false)} />
       <div className="centered">
-        <div className="my-modal">
+        <div className="my-modal" style={{}}>
           <DashboardRk
             style={{ borderTopLeftRadius: 16, borderBottomLeftRadius: 16 }}
           >
-            <></>
-            <ButtonRk
-              className="btn-close"
-              style={{}}
-              onClick={() => setIsOpen(false)}
-            ></ButtonRk>
+            <ButtonRk className="btn-close" onClick={() => setVisible(false)} />
+            <ButtonRk color={"success"} style={{}}></ButtonRk>
           </DashboardRk>
         </div>
       </div>

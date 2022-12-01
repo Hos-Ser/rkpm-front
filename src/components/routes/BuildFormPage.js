@@ -15,30 +15,53 @@ const BuildFormPage = () => {
             setModalVisible(true);
           }}
           color={"primary"}
+          style={{ width: "100%" }}
         >
           صفحه خوش‌آمد گویی
         </ButtonRk>
         <hr />
-        <ButtonRk color={"primary"}>متنی با پاسخ بلند</ButtonRk>
-        <ButtonRk color={"primary"}>متنی با پاسخ کوتاه</ButtonRk>
-        <ButtonRk color={"primary"}>چند‌ گزینه‌ای</ButtonRk>
-        <ButtonRk color={"primary"}>گروه سوال</ButtonRk>
-        <ButtonRk color={"primary"}>لیست کشویی</ButtonRk>
-        <ButtonRk color={"primary"}>عدد</ButtonRk>
-        <ButtonRk color={"primary"}>طیفی</ButtonRk>
-        <ButtonRk color={"primary"}>ایمیل</ButtonRk>
-        <ButtonRk color={"primary"}>لینک یا وبسایت</ButtonRk>
-        <ButtonRk color={"primary"}>متن توضیحات</ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          متنی با پاسخ بلند
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          متنی با پاسخ کوتاه
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          چند‌ گزینه‌ای
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          گروه سوال
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          لیست کشویی
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          عدد
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          طیفی
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          ایمیل
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          لینک یا وبسایت
+        </ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          متن توضیحات
+        </ButtonRk>
         <hr />
-        <ButtonRk color={"primary"}>متنی با پاسخ بلند</ButtonRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          متنی با پاسخ بلند
+        </ButtonRk>
       </DashboardRk>
       <div
         className="p-3"
-        style={{ overflowY: "visible", overflowX: "auto", width: "100%" }}
+        style={{ overflowY: "clip", overflowX: "auto", width: "100%" }}
       >
-        <ButtonRk color={"danger"}>save</ButtonRk>
+        <ButtonRk color={"danger"}>---------</ButtonRk>
       </div>
-      {modalVisible && <ModalRk setIsOpen={setModalVisible} />}
+      {modalVisible && <ModalRk setVisible={setModalVisible} />}
     </>
   );
 };

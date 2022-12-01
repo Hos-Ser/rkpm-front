@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 
 const NavHeader = () => {
   return (
-    <nav className="navbar navbar-expand bg-light" style={{ height: "8vh" }}>
+    <nav
+      className="navbar navbar-expand "
+      style={{ height: "8vh", backgroundColor: "#e9ecef" }}
+    >
       <div className="container-fluid collapse navbar-collapse">
         <div className="navbar-nav">
           <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link to="/createform" className="nav-link">
-            Create From
+          <Link to="/buildform" className="nav-link">
+            Build From
           </Link>
         </div>
       </div>
