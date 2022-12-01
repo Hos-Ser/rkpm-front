@@ -1,14 +1,19 @@
 import React from "react";
 
-const DashboardRk = ({ children, width = "20%" }) => {
+const DashboardRk = ({ children, width = "20%", style, ...otherParams }) => {
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 bg-light"
-      style={{ width: width }}
+      className="d-flex flex-column flex-shrink-0 p-3"
+      style={{ backgroundColor: "#00000009", width: width, ...style }}
+      {...otherParams}
     >
       <ul
         className="align-items-center align-content-center flex-column mb-auto"
-        style={{ listStyle: "none", padding: 0 }}
+        style={{
+          listStyle: "none",
+          padding: 0,
+          borderRadius: 16,
+        }}
       >
         {children.map((child, index) => {
           return (

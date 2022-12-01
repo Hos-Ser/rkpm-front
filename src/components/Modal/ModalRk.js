@@ -1,14 +1,25 @@
 import React from "react";
-import { RiCloseLine } from "react-icons/ri";
+
+import { DashboardRk, ButtonRk } from "../index";
 import "./ModalRk.css";
 
 const ModalRk = ({ setIsOpen }) => {
-  console.log("asdasd");
   return (
     <>
-      <div className="darkBG" onClick={() => setIsOpen(false)} />
+      <div className="modal-bg" onClick={() => setIsOpen(false)} />
       <div className="centered">
-        <div className="myModal"></div>
+        <div className="my-modal">
+          <DashboardRk
+            style={{ borderTopLeftRadius: 16, borderBottomLeftRadius: 16 }}
+          >
+            <></>
+            <ButtonRk
+              className="btn-close"
+              style={{}}
+              onClick={() => setIsOpen(false)}
+            ></ButtonRk>
+          </DashboardRk>
+        </div>
       </div>
     </>
   );
