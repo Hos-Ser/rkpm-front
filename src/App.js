@@ -2,12 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import "./bootstrap.css";
-import {
-  BuildFormPage,
-  HomePage,
-  NavHeader,
-  PageNotFound,
-} from "./components/routes";
+import { BuildFormPage, HomePage, NavHeader, PageNotFound } from "./routes";
 
 function App() {
   return (

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useImmer } from "use-immer";
 
-import { ButtonRk, DashboardRk, ModalRk } from "../index";
+import {
+  ButtonRk,
+  ContentSectionRk,
+  DashboardRk,
+  ModalRk,
+} from "../components";
 
 const BuildFormPage = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -55,12 +60,7 @@ const BuildFormPage = () => {
           صفحه تشکر
         </ButtonRk>
       </DashboardRk>
-      <div
-        className="p-3"
-        style={{ overflowY: "clip", overflowX: "auto", width: "100%" }}
-      >
-        <ButtonRk color={"danger"}>---------</ButtonRk>
-      </div>
+      <ContentSectionRk></ContentSectionRk>
       {modalVisible && <ModalRk setVisible={setModalVisible} />}
     </>
   );
