@@ -25,7 +25,6 @@ const ModalRk = ({ setVisible }) => {
     <>
       <div className="modal-bg" onClick={() => setVisible(false)} />
       <div className="centered">
-        <button type={""}></button>
         <div className="my-modal">
           <DashboardRk
             style={{ borderTopLeftRadius: 16, borderBottomLeftRadius: 16 }}
