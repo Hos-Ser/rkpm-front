@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useStore } from "react-redux";
 import { useImmer } from "use-immer";
 
 import {
@@ -7,17 +8,23 @@ import {
   DashboardRk,
   ModalRk,
 } from "../components";
+import template from "../questionTemplates";
+import { addQuestion } from "../stateStore/questionList";
 
 const BuildFormPage = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modal, setModal] = useState({ visibilty: false, qType: "" });
   const [inputList, updateInputList] = useImmer({});
+
+  const handleOpenModal = (qType) => {
+    setModal({ visibilty: true, qType });
+  };
 
   return (
     <>
       <DashboardRk>
         <ButtonRk
           onClick={() => {
-            setModalVisible(true);
+            handleOpenModal("text");
           }}
           color={"primary"}
           style={{ width: "100%" }}
@@ -61,7 +68,9 @@ const BuildFormPage = () => {
         </ButtonRk>
       </DashboardRk>
       <ContentSectionRk></ContentSectionRk>
-      {modalVisible && <ModalRk setVisible={setModalVisible} />}
+      {modal.visibilty && (
+        <ModalRk modalState={modal} setVisible={setModal} qType={modal.qType} />
+      )}
     </>
   );
 };

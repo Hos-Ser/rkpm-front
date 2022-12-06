@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import auth from "./auth";
-import questionReducer from "./questionReducer";
+import questionList from "./questionList";
 
 export default combineReducers({
   auth,
-  questions: questionReducer,
+  questions: questionList,
 });

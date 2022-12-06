@@ -1,4 +1,3 @@
-import { useStore } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
@@ -6,7 +5,6 @@ import "./bootstrap.css";
 import { BuildFormPage, HomePage, NavHeader, PageNotFound } from "./routes";
 
 function App() {
-  console.log(useStore());
   return (
     <BrowserRouter>
       <NavHeader />
