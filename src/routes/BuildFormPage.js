@@ -1,16 +1,4 @@
 import React, { useState } from "react";
-import {
-  MdTextFields,
-  MdDateRange,
-  MdChecklistRtl,
-  MdFilePresent,
-  MdPassword,
-  MdRadioButtonChecked,
-  MdTextSnippet,
-  MdSettings,
-} from "react-icons/md";
-import { BiSelectMultiple } from "react-icons/bi";
-// import { FaRobot } from "react-icons/fa";
 // import { useStore } from "react-redux";
 // import { useImmer } from "use-immer";
 
@@ -20,11 +8,14 @@ import {
   DashboardRk,
   ModalRk,
   QuestionBoxRk,
+  IconRk,
 } from "../components";
 
 const BuildFormPage = () => {
   const [modal, setModal] = useState({ isVisibile: false, qType: "" });
-  // const [inputList, updateInputList] = useImmer({});
+  // const [questions, updateQuestions] = useImmer(
+  //   useStore().getState().form.questions
+  // );
 
   const handleOpenModal = (qType) => {
     setModal({ isVisibile: true, qType });
@@ -34,9 +25,7 @@ const BuildFormPage = () => {
     <>
       <DashboardRk>
         <ButtonRk
-          icon={
-            <MdTextFields style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="text" />}
           onClick={() => {
             handleOpenModal("text");
           }}
@@ -45,22 +34,16 @@ const BuildFormPage = () => {
           متنی
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdDateRange style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="date" />}
           onClick={() => {
-            handleOpenModal("radio");
+            handleOpenModal("date");
           }}
           style={{ width: "100%" }}
         >
           تاریخ
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdChecklistRtl
-              style={{ marginLeft: 9, verticalAlign: "center" }}
-            />
-          }
+          icon={<IconRk name="checkbox" />}
           onClick={() => {
             handleOpenModal("checkbox");
           }}
@@ -69,11 +52,7 @@ const BuildFormPage = () => {
           لیست انتخابی
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdRadioButtonChecked
-              style={{ marginLeft: 9, verticalAlign: "center" }}
-            />
-          }
+          icon={<IconRk name="radio" />}
           onClick={() => {
             handleOpenModal("radio");
           }}
@@ -82,9 +61,7 @@ const BuildFormPage = () => {
           گزینه ای
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdFilePresent style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="file" />}
           onClick={() => {
             handleOpenModal("file");
           }}
@@ -93,9 +70,7 @@ const BuildFormPage = () => {
           فایل
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdPassword style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="password" />}
           onClick={() => {
             handleOpenModal("password");
           }}
@@ -104,9 +79,7 @@ const BuildFormPage = () => {
           رمز
         </ButtonRk>
         <ButtonRk
-          icon={
-            <MdTextSnippet style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="textarea" />}
           onClick={() => {
             handleOpenModal("textarea");
           }}
@@ -115,11 +88,7 @@ const BuildFormPage = () => {
           متنی پاسخ بلند
         </ButtonRk>
         <ButtonRk
-          icon={
-            <BiSelectMultiple
-              style={{ marginLeft: 9, verticalAlign: "center" }}
-            />
-          }
+          icon={<IconRk name="select" />}
           onClick={() => {
             handleOpenModal("select");
           }}
@@ -127,13 +96,17 @@ const BuildFormPage = () => {
         >
           چند انتخابی
         </ButtonRk>
-        <hr />
         <ButtonRk
-          icon={
-            <MdSettings style={{ marginLeft: 9, verticalAlign: "center" }} />
-          }
+          icon={<IconRk name="captcha" />}
+          onClick={() => {
+            handleOpenModal("captcha");
+          }}
           style={{ width: "100%" }}
         >
+          کپچا
+        </ButtonRk>
+        <hr />
+        <ButtonRk icon={<IconRk name="setting" />} style={{ width: "100%" }}>
           تنظیمات فرم
         </ButtonRk>
       </DashboardRk>
