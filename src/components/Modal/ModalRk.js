@@ -11,7 +11,7 @@ import {
   CheckboxRK,
 } from "../index";
 import "./ModalRk.css";
-import { addQuestion } from "../../stateStore/questionList";
+import { questionAdded, questionEdited } from "../../stateStore/form";
 import template from "../../questionTemplates";
 
 const ModalRk = ({ modalState, setVisible, qType }) => {
@@ -29,17 +29,20 @@ const ModalRk = ({ modalState, setVisible, qType }) => {
     setVisible((modalState.isVisibile = false));
   };
   const handleSaveQuestion = () => {
-    store.dispatch(addQuestion({ question }));
+    store.dispatch(questionAdded({ question }));
     setVisible((modalState.isVisibile = false));
   };
-
   return (
     <>
       <div className="modal-bg" onClick={handleCloseModal} />
       <div className="centered">
         <div className="my-modal">
           <DashboardRk
-            style={{ borderTopLeftRadius: 16, borderBottomLeftRadius: 16 }}
+            style={{
+              borderTopRightRadius: 16,
+              borderBottomRightRadius: 16,
+              backgroundColor: "#e9ecef",
+            }}
           >
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
@@ -67,8 +70,8 @@ const ModalRk = ({ modalState, setVisible, qType }) => {
               />
             )}
             <ButtonRk
-              color={"success"}
-              style={{ bottom: 0 }}
+              className="position-absolute"
+              style={{ position: "absolute", bottom: 11 }}
               onClick={handleSaveQuestion}
             >
               ذخیره

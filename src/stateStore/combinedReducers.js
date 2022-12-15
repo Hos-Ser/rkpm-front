@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import auth from "./auth";
-import questionList from "./questionList";
+import form from "./form";
 
 export default combineReducers({
   auth,
-  questions: questionList,
+  form,
 });

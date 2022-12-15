@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import "./bootstrap.css";
-import { BuildFormPage, HomePage, NavHeader, PageNotFound } from "./routes";
+import { BuildFormPage, HomePage, NavHeader } from "./routes";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/buildform" element={<BuildFormPage />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
     </BrowserRouter>

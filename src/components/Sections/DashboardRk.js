@@ -1,18 +1,16 @@
 import React from "react";
 
-const DashboardRk = ({ children, style, ...otherParams }) => {
+const DashboardRk = ({ children, style, ...otherProps }) => {
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3"
+      className="flex-column border-start border-dark flex-shrink-0 p-3"
       style={{
-        position: "relative",
         alignContent: "center",
-        backgroundColor: "#e9ecef",
         width: "20%",
         ...style,
         overflow: "auto",
       }}
-      {...otherParams}
+      {...otherProps}
     >
       {children}
     </div>

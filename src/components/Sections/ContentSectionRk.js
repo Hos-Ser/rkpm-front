@@ -1,11 +1,11 @@
 import React from "react";
 
-const ContentSectionRk = ({ children, ...otherParams }) => {
+const ContentSectionRk = ({ children, ...otherProps }) => {
   return (
     <div
       className="p-3"
       style={{ overflowY: "clip", overflowX: "auto", width: "100%" }}
-      {...otherParams}
+      {...otherProps}
     >
       {children}
     </div>

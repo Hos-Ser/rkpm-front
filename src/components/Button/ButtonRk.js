@@ -1,12 +1,20 @@
 import React from "react";
 
-const ButtonRk = ({ children, color, ...otherParams }) => {
+const ButtonRk = ({
+  icon,
+  className,
+  children,
+  color,
+  type,
+  ...otherProps
+}) => {
   return (
     <button
-      type={"button"}
-      className={`btn btn-${color} my-1`}
-      {...otherParams}
+      type={type ? type : "button"}
+      className={`btn my-1 border-dark bg-white ${className}`}
+      {...otherProps}
     >
+      {icon ? icon : null}
       {children}
     </button>
   );

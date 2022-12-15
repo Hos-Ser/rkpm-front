@@ -2,20 +2,19 @@ const sameInAll = { title: "", description: "", required: false };
 
 const template = {
   //patterne baraye text input ke karbar malom kone chejor chizi mikhad begire: email, url, number, alphabet, number or alphabet
-  text: { questionType: "text", ...sameInAll, engTitle: "" },
-  number: { questionType: "number", ...sameInAll, min: 0, max: 10 },
+  text: { id: 0, questionType: "text", ...sameInAll, engTitle: "" },
   // taqvim e shamsi ya miladi
-  date: { questionType: "date", ...sameInAll },
-  checkbox: { questionType: "chechbox", ...sameInAll },
+  date: { id: 0, questionType: "date", ...sameInAll },
+  checkbox: { id: 0, questionType: "chechbox", ...sameInAll },
   // pasvande file ro taein kone
-  file: { questionType: "file", ...sameInAll },
-  password: { questionType: "password", ...sameInAll },
-  radio: { questionType: "radio", ...sameInAll },
+  file: { id: 0, questionType: "file", ...sameInAll },
+  password: { id: 0, questionType: "password", ...sameInAll },
+  radio: { id: 0, questionType: "radio", ...sameInAll },
   //anvae captcha: tarkibe harf / adad / harf or adad
-  captcha: {},
+  captcha: { id: 0 },
   // these dont have a standard input type
-  textarea: { questionType: "textarea", ...sameInAll },
-  select: { questionType: "select", ...sameInAll },
+  textarea: { id: 0, questionType: "textarea", ...sameInAll },
+  select: { id: 0, questionType: "select", ...sameInAll },
 };
 
 export default template;
