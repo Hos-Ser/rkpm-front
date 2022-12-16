@@ -1,7 +1,8 @@
 export { default as ButtonRk } from "./Button/ButtonRk";
 export { default as DashboardRk } from "./Sections/DashboardRk";
 export { default as ContentSectionRk } from "./Sections/ContentSectionRk";
-export { default as QuestionModalRk } from "./Modal/QuestionModalRk";
+export { default as QuestionAddRk } from "./Modal/QuestionAddRk";
+export { default as QuestionEditRk } from "./Modal/QuestionEditRk";
 export { default as TextAreaRk } from "./Inputs/TextAreaRk";
 export { default as TextInputRk } from "./Inputs/TextInputRk";
 export { default as CheckboxRK } from "./Inputs/CheckboxRK";

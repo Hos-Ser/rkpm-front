@@ -4,9 +4,18 @@ import { useDispatch } from "react-redux";
 import { CheckboxRK, IconRk } from "../index";
 import { questionReqToggled } from "../../stateStore/formReducer";
 
-const QuestionBoxRk = ({ question, questionUpdate, ...otherProps }) => {
+const QuestionBoxRk = ({
+  modalState,
+  setModalState,
+  question,
+  questionUpdate,
+  ...otherProps
+}) => {
   const dispatch = useDispatch();
 
+  const handleOpenModal = (qType) => {
+    setModalState({ isVisibile: true, qType, question: question });
+  };
   return (
     <div
       style={{
@@ -18,7 +27,9 @@ const QuestionBoxRk = ({ question, questionUpdate, ...otherProps }) => {
         width: "100% ",
         cursor: "pointer",
       }}
-      onClick={() => console.log("container clicked")}
+      onClick={() => {
+        handleOpenModal(question.questionType);
+      }}
     >
       <span>
         <IconRk name={question.questionType} />

@@ -6,19 +6,29 @@ import {
   ButtonRk,
   ContentSectionRk,
   DashboardRk,
-  QuestionModalRk,
+  QuestionAddRk,
+  QuestionEditRk,
   QuestionBoxRk,
   IconRk,
 } from "../components";
 
 const BuildFormPage = () => {
   const [modal, setModal] = useState({ isVisibile: false, qType: "" });
+  const [modalEdit, setModalEdit] = useState({
+    isVisibile: false,
+    qType: "",
+    question: {},
+  });
   const questions = useSelector((state) => state.form.questions);
 
   const items = questions.map((item) => {
     return (
       <li key={item.id} className="mb-2">
-        <QuestionBoxRk question={item} />
+        <QuestionBoxRk
+          modalState={modalEdit}
+          setModalState={setModalEdit}
+          question={item}
+        />
       </li>
     );
   });
@@ -123,10 +133,17 @@ const BuildFormPage = () => {
         <ul style={{ listStyle: "persian" }}>{items}</ul>
       </ContentSectionRk>
       {modal.isVisibile && (
-        <QuestionModalRk
+        <QuestionAddRk
           modalState={modal}
           setVisible={setModal}
           qType={modal.qType}
+        />
+      )}
+      {modalEdit.isVisibile && (
+        <QuestionEditRk
+          modalState={modalEdit}
+          setVisible={setModalEdit}
+          qType={modalEdit.qType}
         />
       )}
     </>

@@ -14,7 +14,7 @@ import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
 import template from "../../questionTemplates";
 
-const QuestionModalRk = ({ modalState, setVisible, qType }) => {
+const QuestionAddRk = ({ modalState, setVisible, qType }) => {
   const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(template[qType]);
 
@@ -89,4 +89,4 @@ const QuestionModalRk = ({ modalState, setVisible, qType }) => {
   );
 };
 
-export default QuestionModalRk;
+export default QuestionAddRk;
