@@ -10,11 +10,11 @@ import {
   ContentSectionRk,
   CheckboxRK,
 } from "../index";
-import "./ModalRk.css";
-import { questionAdded, questionEdited } from "../../stateStore/formReducer";
+import "./QuestionModalRk.css";
+import { questionAdded } from "../../stateStore/formReducer";
 import template from "../../questionTemplates";
 
-const ModalRk = ({ modalState, setVisible, qType }) => {
+const QuestionModalRk = ({ modalState, setVisible, qType }) => {
   const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(template[qType]);
 
@@ -89,4 +89,4 @@ const ModalRk = ({ modalState, setVisible, qType }) => {
   );
 };
 
-export default ModalRk;
+export default QuestionModalRk;

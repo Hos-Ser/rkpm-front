@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useImmer } from "use-immer";
+import { useSelector } from "react-redux";
+// import { useImmer } from "use-immer";
 
 import {
   ButtonRk,
   ContentSectionRk,
   DashboardRk,
-  ModalRk,
+  QuestionModalRk,
   QuestionBoxRk,
   IconRk,
 } from "../components";
@@ -123,7 +123,11 @@ const BuildFormPage = () => {
         <ul style={{ listStyle: "persian" }}>{items}</ul>
       </ContentSectionRk>
       {modal.isVisibile && (
-        <ModalRk modalState={modal} setVisible={setModal} qType={modal.qType} />
+        <QuestionModalRk
+          modalState={modal}
+          setVisible={setModal}
+          qType={modal.qType}
+        />
       )}
     </>
   );
