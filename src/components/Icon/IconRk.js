@@ -10,7 +10,7 @@ import {
   MdSettings,
 } from "react-icons/md";
 import { BiSelectMultiple } from "react-icons/bi";
-import { FaRobot } from "react-icons/fa";
+import { FaRobot, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const style = {
   borderStyle: "solid",
@@ -24,28 +24,82 @@ const style = {
   padding: 1.3,
 };
 
-const IconRk = ({ name }) => {
+const IconRk = ({ styleProp, name, ...otherProps }) => {
   switch (name) {
     case "text":
-      return <MdTextFields style={{ ...style, borderColor: "#189" }} />;
+      return (
+        <MdTextFields
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#189" }}
+        />
+      );
     case "date":
-      return <MdDateRange style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdDateRange
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "checkbox":
-      return <MdChecklistRtl style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdChecklistRtl
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "file":
-      return <MdFilePresent style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdFilePresent
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "password":
-      return <MdPassword style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdPassword
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "radio":
-      return <MdRadioButtonChecked style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdRadioButtonChecked
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "captcha":
-      return <FaRobot style={{ ...style, borderColor: "#" }} />;
+      return (
+        <FaRobot
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "textarea":
-      return <MdTextSnippet style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdTextSnippet
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "select":
-      return <BiSelectMultiple style={{ ...style, borderColor: "#" }} />;
+      return (
+        <BiSelectMultiple
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
     case "setting":
-      return <MdSettings style={{ ...style, borderColor: "#" }} />;
+      return (
+        <MdSettings
+          {...otherProps}
+          style={{ ...style, ...styleProp, borderColor: "#" }}
+        />
+      );
+    case "chevronUp":
+      return <FaChevronUp {...otherProps} style={styleProp} />;
+    case "chevronDown":
+      return <FaChevronDown {...otherProps} style={styleProp} />;
 
     default:
       return null;

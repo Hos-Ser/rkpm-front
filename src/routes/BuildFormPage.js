@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { useStore } from "react-redux";
-// import { useImmer } from "use-immer";
+import { useSelector, useDispatch } from "react-redux";
+import { useImmer } from "use-immer";
 
 import {
   ButtonRk,
@@ -13,9 +13,15 @@ import {
 
 const BuildFormPage = () => {
   const [modal, setModal] = useState({ isVisibile: false, qType: "" });
-  // const [questions, updateQuestions] = useImmer(
-  //   useStore().getState().form.questions
-  // );
+  const questions = useSelector((state) => state.form.questions);
+
+  const items = questions.map((item) => {
+    return (
+      <li key={item.id} className="mb-2">
+        <QuestionBoxRk question={item} />
+      </li>
+    );
+  });
 
   const handleOpenModal = (qType) => {
     setModal({ isVisibile: true, qType });
@@ -24,6 +30,9 @@ const BuildFormPage = () => {
   return (
     <>
       <DashboardRk>
+        <ButtonRk color={"primary"} style={{ width: "100%" }}>
+          صفحه خوش‌آمد گویی
+        </ButtonRk>
         <ButtonRk
           icon={<IconRk name="text" />}
           onClick={() => {
@@ -111,7 +120,7 @@ const BuildFormPage = () => {
         </ButtonRk>
       </DashboardRk>
       <ContentSectionRk>
-        <QuestionBoxRk />
+        <ul style={{ listStyle: "persian" }}>{items}</ul>
       </ContentSectionRk>
       {modal.isVisibile && (
         <ModalRk modalState={modal} setVisible={setModal} qType={modal.qType} />

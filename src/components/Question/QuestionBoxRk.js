@@ -1,34 +1,40 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import { CheckboxRK, IconRk } from "../index";
+import { questionReqToggled } from "../../stateStore/formReducer";
 
-const QuestionBoxRk = ({ iconName, ...otherProps }) => {
+const QuestionBoxRk = ({ question, questionUpdate, ...otherProps }) => {
+  const dispatch = useDispatch();
+
   return (
     <div
       style={{
         borderStyle: "solid",
         borderWidth: 1,
         borderRadius: 16,
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        justifyItems: "center",
+        padding: 5,
+        paddingTop: 0,
         width: "100% ",
       }}
     >
-      <div style={{ width: 10, height: 10, backgroundColor: "dodgerblue" }}>
-        {/* <IconRk name={"text"} /> */}
-      </div>
+      <span>
+        <IconRk name={question.questionType} />
+      </span>
       <CheckboxRK
+        containerStyle={{ display: "inline", paddingLeft: 10 }}
         label={"اجباری؟"}
         role={"switch"}
         isSwitch={true}
-        // onChange={() =>
-        //   updateQuestion((draft) => {
-        //     draft.required = !draft.required;
-        //   })
-        // }
+        onChange={() => {
+          dispatch(questionReqToggled(question.id));
+        }}
+        checked={question.required}
       />
+      <span>
+        <IconRk name={"chevronUp"} style={{}} />
+        <IconRk name={"chevronDown"} />
+      </span>
     </div>
   );
 };

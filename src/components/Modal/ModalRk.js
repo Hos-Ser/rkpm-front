@@ -1,5 +1,5 @@
 import React from "react";
-import { useStore } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useImmer } from "use-immer";
 
 import {
@@ -11,11 +11,11 @@ import {
   CheckboxRK,
 } from "../index";
 import "./ModalRk.css";
-import { questionAdded, questionEdited } from "../../stateStore/form";
+import { questionAdded, questionEdited } from "../../stateStore/formReducer";
 import template from "../../questionTemplates";
 
 const ModalRk = ({ modalState, setVisible, qType }) => {
-  const store = useStore();
+  const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(template[qType]);
 
   const handleTextInputChange = (whatsChanging) => {
@@ -29,7 +29,7 @@ const ModalRk = ({ modalState, setVisible, qType }) => {
     setVisible((modalState.isVisibile = false));
   };
   const handleSaveQuestion = () => {
-    store.dispatch(questionAdded({ question }));
+    dispatch(questionAdded({ question }));
     setVisible((modalState.isVisibile = false));
   };
   return (

@@ -4,7 +4,7 @@ const ContentSectionRk = ({ children, ...otherProps }) => {
   return (
     <div
       className="p-3"
-      style={{ overflowY: "clip", overflowX: "auto", width: "100%" }}
+      style={{ overflowX: "clip", overflowY: "auto", width: "100%" }}
       {...otherProps}
     >
       {children}

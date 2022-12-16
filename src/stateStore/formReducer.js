@@ -21,8 +21,14 @@ const slice = createSlice({
       );
       form.questions[index] = action.payload.question;
     },
+    questionReqToggled(form, action) {
+      const index = form.questions.findIndex((qu) => qu.id === action.payload);
+
+      form.questions[index].required = !form.questions[index].required;
+    },
   },
 });
 
-export const { questionAdded, questionEdited } = slice.actions;
+export const { questionAdded, questionEdited, questionReqToggled } =
+  slice.actions;
 export default slice.reducer;
