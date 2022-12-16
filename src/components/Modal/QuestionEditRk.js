@@ -28,8 +28,10 @@ const QuestionEditRk = ({ modalState, setVisible }) => {
     setVisible((modalState.isVisibile = false));
   };
   const handleSaveQuestion = () => {
-    dispatch(questionEdited({ question }));
-    setVisible((modalState.isVisibile = false));
+    if (question.title !== "") {
+      dispatch(questionEdited({ question }));
+      setVisible((modalState.isVisibile = false));
+    }
   };
   return (
     <>
@@ -46,6 +48,7 @@ const QuestionEditRk = ({ modalState, setVisible }) => {
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
               <TextInputRk
+                autoFocus
                 value={question.title}
                 onChange={handleTextInputChange("title")}
                 label={"عنوان سوال را وارد کنید"}

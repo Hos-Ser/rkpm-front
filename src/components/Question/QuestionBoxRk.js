@@ -26,6 +26,8 @@ const QuestionBoxRk = ({
         paddingTop: 0,
         width: "100% ",
         cursor: "pointer",
+        display: "grid",
+        gridTemplateColumns: "0.5fr 8fr 3fr",
       }}
       onClick={() => {
         handleOpenModal(question.questionType);
@@ -34,24 +36,30 @@ const QuestionBoxRk = ({
       <span>
         <IconRk name={question.questionType} />
       </span>
-      <input
+      {/* <input
         disabled
         type={"text"}
         value={question.title}
         style={{
           textOverflow: "ellipsis",
-          width: 450,
+          width: "100%",
           color: "black",
           backgroundColor: "white",
           border: "none",
           marginLeft: 4,
           cursor: "pointer",
+          justifySelf: "start",
         }}
-      />
+        onClick={() => {
+          handleOpenModal(question.questionType);
+        }}
+      /> */}
       <span
-        onClick={(e) => e.stopPropagation()}
-        style={{ position: "absolute", left: 60 }}
+        style={{ textOverflow: "ellipsis", width: "100%", overflow: "hidden" }}
       >
+        {question.title}
+      </span>
+      <span onClick={(e) => e.stopPropagation()} style={{ justifySelf: "end" }}>
         <CheckboxRK
           containerStyle={{ display: "inline", paddingLeft: 50 }}
           label={"اجباری؟"}

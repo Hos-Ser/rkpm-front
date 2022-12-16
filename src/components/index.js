@@ -8,4 +8,3 @@ export { default as TextInputRk } from "./Inputs/TextInputRk";
 export { default as CheckboxRK } from "./Inputs/CheckboxRK";
 export { default as QuestionBoxRk } from "./Question/QuestionBoxRk";
 export { default as IconRk } from "./Icon/IconRk";
-export { default as QuestionListing } from "./Question/QuestionListing";
