@@ -36,24 +36,6 @@ const QuestionBoxRk = ({
       <span>
         <IconRk name={question.questionType} />
       </span>
-      {/* <input
-        disabled
-        type={"text"}
-        value={question.title}
-        style={{
-          textOverflow: "ellipsis",
-          width: "100%",
-          color: "black",
-          backgroundColor: "white",
-          border: "none",
-          marginLeft: 4,
-          cursor: "pointer",
-          justifySelf: "start",
-        }}
-        onClick={() => {
-          handleOpenModal(question.questionType);
-        }}
-      /> */}
       <span
         style={{ textOverflow: "ellipsis", width: "100%", overflow: "hidden" }}
       >

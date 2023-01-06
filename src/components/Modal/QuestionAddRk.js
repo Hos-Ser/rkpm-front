@@ -14,7 +14,7 @@ import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
 import template from "../../questionTemplates";
 
-const QuestionAddRk = ({ modalState, setVisible, qType }) => {
+const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
   const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(template[qType]);
 
@@ -40,10 +40,10 @@ const QuestionAddRk = ({ modalState, setVisible, qType }) => {
       <div className="centered">
         <div className="my-modal">
           <DashboardRk
+            className={`${dBclass}`}
             style={{
               borderTopRightRadius: 16,
               borderBottomRightRadius: 16,
-              backgroundColor: "#e9ecef",
             }}
           >
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />

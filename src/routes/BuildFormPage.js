@@ -40,9 +40,6 @@ const BuildFormPage = () => {
   return (
     <>
       <DashboardRk>
-        <ButtonRk color={"primary"} style={{ width: "100%" }}>
-          صفحه خوش‌آمد گویی
-        </ButtonRk>
         <ButtonRk
           icon={<IconRk name="text" />}
           onClick={() => {
@@ -50,7 +47,7 @@ const BuildFormPage = () => {
           }}
           style={{ width: "100%" }}
         >
-          متنی
+          سوالات متنی
         </ButtonRk>
         <ButtonRk
           icon={<IconRk name="date" />}
@@ -134,6 +131,7 @@ const BuildFormPage = () => {
       </ContentSectionRk>
       {modal.isVisibile && (
         <QuestionAddRk
+          dBclass={`${modal.qType}-icon`}
           modalState={modal}
           setVisible={setModal}
           qType={modal.qType}

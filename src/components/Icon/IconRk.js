@@ -1,4 +1,6 @@
 import React from "react";
+
+import "./IconRk.css";
 import {
   MdTextFields,
   MdDateRange,
@@ -9,14 +11,11 @@ import {
   MdTextSnippet,
   MdSettings,
 } from "react-icons/md";
-import { BiSelectMultiple } from "react-icons/bi";
+import { BiSelectMultiple, BiUserCircle } from "react-icons/bi";
 import { FaRobot, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const styleObj = {
-  borderStyle: "solid",
-  borderWidth: 1,
-  borderColor: "#111",
-  borderRadius: "50%",
+  borderRadius: "40%",
   width: 21,
   height: 21,
   marginLeft: 9,
@@ -30,13 +29,18 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdTextFields
           {...otherProps}
-          style={{ ...styleObj, ...style, borderColor: "#189" }}
+          className="text-icon"
+          style={{
+            ...styleObj,
+            ...style,
+          }}
         />
       );
     case "date":
       return (
         <MdDateRange
           {...otherProps}
+          className="date-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -44,6 +48,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdChecklistRtl
           {...otherProps}
+          className="checkbox-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -51,6 +56,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdFilePresent
           {...otherProps}
+          className="file-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -58,6 +64,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdPassword
           {...otherProps}
+          className="password-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -65,6 +72,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdRadioButtonChecked
           {...otherProps}
+          className="radio-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -72,6 +80,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <FaRobot
           {...otherProps}
+          className="captcha-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -79,6 +88,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdTextSnippet
           {...otherProps}
+          className="textarea-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -86,6 +96,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <BiSelectMultiple
           {...otherProps}
+          className="select-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -93,6 +104,7 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdSettings
           {...otherProps}
+          className="setting-icon"
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
@@ -100,6 +112,8 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return <FaChevronUp {...otherProps} style={{ ...style, margin: 3 }} />;
     case "chevronDown":
       return <FaChevronDown {...otherProps} style={{ ...style, margin: 3 }} />;
+    case "user":
+      return <BiUserCircle {...otherProps} style={{ ...style, margin: 3 }} />;
 
     default:
       return null;

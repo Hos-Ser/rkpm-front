@@ -3,3 +3,19 @@ main {
   height: 92vh;
   width: 100%;
 }
+
+.rk-bc-blue {
+  background-color: #4791e0;
+}
+
+.rk-border-gray {
+  border-color: #757575;
+}
+.rk-navheader {
+  display: grid;
+  width: 100%;
+  height: 7vh;
+  grid-template-columns: 1fr 50px;
+  gap: 1rem;
+  align-items: center;
+}

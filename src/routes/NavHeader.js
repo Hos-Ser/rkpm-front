@@ -1,23 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { IconRk } from "../components";
+
 const NavHeader = () => {
   return (
-    <nav
-      className="navbar navbar-expand "
-      style={{ height: "8vh", backgroundColor: "#e9ecef" }}
-    >
-      <div className="container-fluid collapse navbar-collapse">
-        <div className="navbar-nav">
-          <Link to="/" className="nav-link">
-            فرایند ساز رایا کوثر
-          </Link>
-          <Link to="/buildform" className="nav-link">
-            Build From
-          </Link>
-        </div>
-      </div>
-    </nav>
+    <div className="rk-navheader rk-bc-blue">
+      <span>
+        <Link
+          to="/"
+          className="nav-link"
+          style={{ width: "fit-content", marginRight: 15 }}
+        >
+          فرایند ساز رایا کوثر
+        </Link>
+      </span>
+      <Link className="nav-link" style={{ width: "fit-content" }}>
+        <IconRk name={"user"} style={{ width: 30, height: 30, margin: 0 }} />
+      </Link>
+    </div>
   );
 };
 
