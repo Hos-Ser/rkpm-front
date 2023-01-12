@@ -8,12 +8,12 @@ import {
   TextAreaRk,
   TextInputRk,
   ContentSectionRk,
-  CheckboxRK,
+  CheckboxRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionEdited } from "../../stateStore/formReducer";
 
-const QuestionEditRk = ({ modalState, setVisible }) => {
+const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
   const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(modalState.question);
 
@@ -39,10 +39,10 @@ const QuestionEditRk = ({ modalState, setVisible }) => {
       <div className="centered">
         <div className="my-modal">
           <DashboardRk
+            className={`${dBclass}`}
             style={{
               borderTopRightRadius: 16,
               borderBottomRightRadius: 16,
-              backgroundColor: "#e9ecef",
             }}
           >
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
@@ -62,7 +62,7 @@ const QuestionEditRk = ({ modalState, setVisible }) => {
               />
             )}
             {"required" in question && (
-              <CheckboxRK
+              <CheckboxRk
                 checked={question.required}
                 label={"اجباری؟"}
                 role={"switch"}

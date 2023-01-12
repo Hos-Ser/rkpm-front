@@ -5,13 +5,13 @@
   background-color: #ffaeae;
 }
 .checkbox-icon {
-  background-color: #dbbef7;
+  background-color: #edbef7;
 }
 .file-icon {
-  background-color: #f7f7be;
+  background-color: #d974fd;
 }
 .password-icon {
-  background-color: #bef7f7;
+  background-color: #a5a5a5;
 }
 .radio-icon {
   background-color: #bef7db;
@@ -22,7 +22,7 @@
 .textarea-icon {
   background-color: #8cffb4;
 }
-.select-icon {
+.number-icon {
   background-color: #ffee8c;
 }
 .setting-icon {

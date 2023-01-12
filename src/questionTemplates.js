@@ -1,32 +1,45 @@
-const sameInAll = { title: "", description: "", required: false };
+const sameInAll = (type) => {
+  return {
+    order: 0,
+    questionType: type,
+    title: "",
+    description: "",
+    required: false,
+  };
+};
 
 const template = {
   //patterne baraye text input ke karbar malom kone chejor chizi mikhad begire: email, url, number, alphabet, number or alphabet
   text: {
-    id: 0,
-    questionType: "text",
-    ...sameInAll,
-    engTitle: "",
-    parternType: "text",
+    ...sameInAll("text"),
+    inputID: "",
+    paternType: "text",
+  },
+  number: {
+    ...sameInAll("number"),
+    isStep: false,
+    step: 1,
+    min: 0,
+    max: 9,
   },
   // taqvim e shamsi ya miladi
-  date: { id: 0, questionType: "date", ...sameInAll, dateType: "" },
-  checkbox: { id: 0, questionType: "checkbox", ...sameInAll, options: [] },
+  date: { ...sameInAll("date"), calender: "" },
+  // list e entekhabi
+  checkbox: { ...sameInAll("checkbox"), options: [] },
+  // gozine ei ya tak entekhabi
+  radio: { ...sameInAll("radio"), options: [] },
   // pasvande file ro taein kone
-  file: { id: 0, questionType: "file", ...sameInAll, extention: "" },
-  password: { id: 0, questionType: "password", ...sameInAll, isHidden: true },
-  radio: { id: 0, questionType: "radio", ...sameInAll, options: [] },
+  file: { ...sameInAll("file"), extention: "" },
+  password: { ...sameInAll("password"), minChar: 0, maxChar: 10 },
   //anvae captcha: tarkibe harf / adad / harf or adad
   captcha: {
-    id: 0,
-    questionType: "captcha",
-    required: false,
-    title: "",
+    ...sameInAll("captcha"),
     captchaType: "",
   },
   // these dont have a standard input type
-  textarea: { id: 0, questionType: "textarea", ...sameInAll, maxlength: 500 },
-  select: { id: 0, questionType: "select", ...sameInAll, options: [] },
+  textarea: { ...sameInAll("textarea"), maxlength: 500 },
 };
 
 export default template;
+// select: { ...sameInAll("select"), options: [] },
+//I think this one wont needed

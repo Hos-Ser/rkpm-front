@@ -8,7 +8,7 @@ import {
   TextAreaRk,
   TextInputRk,
   ContentSectionRk,
-  CheckboxRK,
+  CheckboxRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
@@ -61,7 +61,7 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
               />
             )}
             {"required" in question && (
-              <CheckboxRK
+              <CheckboxRk
                 label={"اجباری؟"}
                 role={"switch"}
                 isSwitch={true}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckboxRK = ({ label, containerStyle, isSwitch, ...otherProps }) => {
+const CheckboxRk = ({ label, containerStyle, isSwitch, ...otherProps }) => {
   return (
     <div className={`mb-2 ${isSwitch && "form-switch"}`} style={containerStyle}>
       <label className="text-black">
@@ -16,4 +16,4 @@ const CheckboxRK = ({ label, containerStyle, isSwitch, ...otherProps }) => {
   );
 };
 
-export default CheckboxRK;
+export default CheckboxRk;

@@ -23,7 +23,7 @@ const BuildFormPage = () => {
 
   const items = questions.map((item) => {
     return (
-      <li key={item.id} className="mb-2">
+      <li key={item.order} className="mb-2">
         <QuestionBoxRk
           modalState={modalEdit}
           setModalState={setModalEdit}
@@ -48,6 +48,15 @@ const BuildFormPage = () => {
           style={{ width: "100%" }}
         >
           سوالات متنی
+        </ButtonRk>
+        <ButtonRk
+          icon={<IconRk name="number" />}
+          onClick={() => {
+            handleOpenModal("number");
+          }}
+          style={{ width: "100%" }}
+        >
+          عددی
         </ButtonRk>
         <ButtonRk
           icon={<IconRk name="date" />}
@@ -104,15 +113,6 @@ const BuildFormPage = () => {
           متنی پاسخ بلند
         </ButtonRk>
         <ButtonRk
-          icon={<IconRk name="select" />}
-          onClick={() => {
-            handleOpenModal("select");
-          }}
-          style={{ width: "100%" }}
-        >
-          چند انتخابی
-        </ButtonRk>
-        <ButtonRk
           icon={<IconRk name="captcha" />}
           onClick={() => {
             handleOpenModal("captcha");
@@ -139,6 +139,7 @@ const BuildFormPage = () => {
       )}
       {modalEdit.isVisibile && (
         <QuestionEditRk
+          dBclass={`${modalEdit.qType}-icon`}
           modalState={modalEdit}
           setVisible={setModalEdit}
           qType={modalEdit.qType}

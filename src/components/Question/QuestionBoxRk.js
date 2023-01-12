@@ -1,8 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { CheckboxRK, IconRk } from "../index";
-import { questionReqToggled } from "../../stateStore/formReducer";
+import { CheckboxRk, IconRk } from "../index";
+import {
+  questionReqToggled,
+  questionReordered,
+} from "../../stateStore/formReducer";
 
 const QuestionBoxRk = ({
   modalState,
@@ -42,28 +45,40 @@ const QuestionBoxRk = ({
         {question.title}
       </span>
       <span onClick={(e) => e.stopPropagation()} style={{ justifySelf: "end" }}>
-        <CheckboxRK
+        <CheckboxRk
           containerStyle={{ display: "inline", paddingLeft: 50 }}
           label={"اجباری؟"}
           role={"switch"}
           isSwitch={true}
           onChange={() => {
-            dispatch(questionReqToggled(question.id));
+            dispatch(questionReqToggled(question.order));
           }}
           checked={question.required}
         />
-        <span style={{}}>
-          <IconRk
-            onClick={() => {}}
-            name={"chevronUp"}
-            style={{ cursor: "pointer" }}
-          />
-          <IconRk
-            onClick={() => {}}
-            name={"chevronDown"}
-            style={{ cursor: "pointer" }}
-          />
-        </span>
+        <IconRk
+          onClick={() => {
+            dispatch(
+              questionReordered({
+                order: question.order,
+                replace: question.order - 1,
+              })
+            );
+          }}
+          name={"chevronUp"}
+          style={{ cursor: "pointer" }}
+        />
+        <IconRk
+          onClick={() => {
+            dispatch(
+              questionReordered({
+                order: question.order,
+                replace: question.order + 1,
+              })
+            );
+          }}
+          name={"chevronDown"}
+          style={{ cursor: "pointer" }}
+        />
       </span>
     </div>
   );

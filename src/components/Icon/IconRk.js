@@ -11,8 +11,10 @@ import {
   MdTextSnippet,
   MdSettings,
 } from "react-icons/md";
-import { BiSelectMultiple, BiUserCircle } from "react-icons/bi";
+import { BiHash, BiUserCircle } from "react-icons/bi";
 import { FaRobot, FaChevronDown, FaChevronUp } from "react-icons/fa";
+
+// BiSelectMultiple
 
 const styleObj = {
   borderRadius: "40%",
@@ -30,6 +32,17 @@ const IconRk = ({ style, name, ...otherProps }) => {
         <MdTextFields
           {...otherProps}
           className="text-icon"
+          style={{
+            ...styleObj,
+            ...style,
+          }}
+        />
+      );
+    case "number":
+      return (
+        <BiHash
+          {...otherProps}
+          className="number-icon"
           style={{
             ...styleObj,
             ...style,
@@ -92,14 +105,14 @@ const IconRk = ({ style, name, ...otherProps }) => {
           style={{ ...styleObj, ...style, borderColor: "#" }}
         />
       );
-    case "select":
-      return (
-        <BiSelectMultiple
-          {...otherProps}
-          className="select-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
-        />
-      );
+    // case "select":
+    //   return (
+    //     <BiSelectMultiple
+    //       {...otherProps}
+    //       className="select-icon"
+    //       style={{ ...styleObj, ...style, borderColor: "#" }}
+    //     />
+    //   );
     case "setting":
       return (
         <MdSettings
