@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useImmer } from "use-immer";
 
@@ -9,6 +9,8 @@ import {
   TextInputRk,
   ContentSectionRk,
   CheckboxRk,
+  SelectRk,
+  IconRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
@@ -17,13 +19,17 @@ import template from "../../questionTemplates";
 const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
   const dispatch = useDispatch();
   const [question, updateQuestion] = useImmer(template[qType]);
+  const [optionField, setOptionField] = useState("");
 
-  const handleTextInputChange = (whatsChanging) => {
-    return function (e) {
+  const handleInputChange = (whatsChanging) => {
+    return (e) => {
       updateQuestion((draft) => {
         draft[whatsChanging] = e.target.value;
       });
     };
+  };
+  const handleOptionChange = (e) => {
+    setOptionField(e.target.value);
   };
   const handleCloseModal = () => {
     setVisible((modalState.isVisibile = false));
@@ -32,6 +38,14 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
     if (question.title !== "") {
       dispatch(questionAdded({ question }));
       setVisible((modalState.isVisibile = false));
+    }
+  };
+  const handleSaveOption = () => {
+    if (optionField !== "") {
+      updateQuestion((draft) => {
+        draft.options.push(optionField);
+      });
+      setOptionField("");
     }
   };
   return (
@@ -44,20 +58,24 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
             style={{
               borderTopRightRadius: 16,
               borderBottomRightRadius: 16,
+              width: "40%",
             }}
           >
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
               <TextInputRk
                 autoFocus
-                onChange={handleTextInputChange("title")}
+                onChange={handleInputChange("title")}
                 label={"عنوان سوال را وارد کنید"}
+                maxLength={500}
+                containerStyle={{ width: "100%" }}
               />
             )}
             {"description" in question && (
               <TextAreaRk
-                onChange={handleTextInputChange("description")}
+                onChange={handleInputChange("description")}
                 label={"توضیحات سوال را وارد کنید"}
+                maxLength={1000}
               />
             )}
             {"required" in question && (
@@ -72,6 +90,35 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
                 }
               />
             )}
+            {"calendar" in question && (
+              <SelectRk
+                label={"نوع تاریخ"}
+                onChange={handleInputChange("calendar")}
+                value={question.calendar}
+                options={[
+                  { label: "شمسی", value: "shamsi" },
+                  { label: "میلادی", value: "miladi" },
+                ]}
+              />
+            )}
+            {"options" in question && (
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "9fr 1fr",
+                  placeItems: "center",
+                }}
+              >
+                <TextInputRk
+                  value={optionField}
+                  label={"گزینه ها را اضافه کنید"}
+                  onChange={handleOptionChange}
+                />
+                <span onClick={handleSaveOption}>
+                  <IconRk name={"plus"} />
+                </span>
+              </div>
+            )}
             <ButtonRk
               className="position-absolute"
               style={{ position: "absolute", bottom: 11 }}
@@ -80,9 +127,8 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
               ذخیره
             </ButtonRk>
           </DashboardRk>
-          <ContentSectionRk>
+          <ContentSectionRk style={{ display: "grid", placeItems: "center" }}>
             <TextInputRk
-              containerStyle={{ top: "40%", position: "absolute" }}
               label={`${question.title} ${question.required ? "*" : ""}`}
             />
           </ContentSectionRk>

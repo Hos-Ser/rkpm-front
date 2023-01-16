@@ -1,4 +1,10 @@
 export { default as NavHeader } from "./NavHeader";
 export { default as PageNotFound } from "./PageNotFound";
 export { default as HomePage } from "./HomePage";
+export { default as ProfilePage } from "./ProfilePage";
 export { default as BuildFormPage } from "./BuildFormPage";
+export { default as BuildReportPage } from "./BuildReportPage";
+export { default as BuildProcessPage } from "./BuildProcessPage";
+export { default as FormsPage } from "./FormsPage";
+export { default as ProcessesPage } from "./ProcessesPage";
+export { default as ReportsPage } from "./ReportsPage";

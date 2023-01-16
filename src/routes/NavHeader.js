@@ -15,7 +15,11 @@ const NavHeader = () => {
           فرایند ساز رایا کوثر
         </Link>
       </span>
-      <Link className="nav-link" style={{ width: "fit-content" }}>
+      <Link
+        className="nav-link"
+        style={{ width: "fit-content" }}
+        to={"/profile"}
+      >
         <IconRk name={"user"} style={{ width: 30, height: 30, margin: 0 }} />
       </Link>
     </div>

@@ -11,19 +11,10 @@ import {
   MdTextSnippet,
   MdSettings,
 } from "react-icons/md";
-import { BiHash, BiUserCircle } from "react-icons/bi";
+import { BiHash, BiUserCircle, BiPlusCircle } from "react-icons/bi";
 import { FaRobot, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 // BiSelectMultiple
-
-const styleObj = {
-  borderRadius: "40%",
-  width: 21,
-  height: 21,
-  marginLeft: 9,
-  verticalAlign: "center",
-  padding: 1.3,
-};
 
 const IconRk = ({ style, name, ...otherProps }) => {
   switch (name) {
@@ -31,9 +22,8 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdTextFields
           {...otherProps}
-          className="text-icon"
+          className="text-icon icon-style"
           style={{
-            ...styleObj,
             ...style,
           }}
         />
@@ -42,9 +32,8 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <BiHash
           {...otherProps}
-          className="number-icon"
+          className="number-icon icon-style"
           style={{
-            ...styleObj,
             ...style,
           }}
         />
@@ -53,72 +42,80 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <MdDateRange
           {...otherProps}
-          className="date-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="date-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "checkbox":
       return (
         <MdChecklistRtl
           {...otherProps}
-          className="checkbox-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="checkbox-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "file":
       return (
         <MdFilePresent
           {...otherProps}
-          className="file-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="file-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "password":
       return (
         <MdPassword
           {...otherProps}
-          className="password-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="password-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "radio":
       return (
         <MdRadioButtonChecked
           {...otherProps}
-          className="radio-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="radio-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "captcha":
       return (
         <FaRobot
           {...otherProps}
-          className="captcha-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="captcha-icon icon-style"
+          style={{ ...style }}
         />
       );
     case "textarea":
       return (
         <MdTextSnippet
           {...otherProps}
-          className="textarea-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="textarea-icon icon-style"
+          style={{ ...style }}
         />
       );
     // case "select":
     //   return (
     //     <BiSelectMultiple
     //       {...otherProps}
-    //       className="select-icon"
-    //       style={{ ...styleObj, ...style, borderColor: "#" }}
+    //       className="select-icon icon-style"
+    //       style={{  ...style,  }}
     //     />
     //   );
     case "setting":
       return (
         <MdSettings
           {...otherProps}
-          className="setting-icon"
-          style={{ ...styleObj, ...style, borderColor: "#" }}
+          className="setting-icon icon-style"
+          style={{ ...style }}
+        />
+      );
+    case "plus":
+      return (
+        <BiPlusCircle
+          {...otherProps}
+          className="plus-icon"
+          style={{ ...style }}
         />
       );
     case "chevronUp":

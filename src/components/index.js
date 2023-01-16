@@ -6,5 +6,6 @@ export { default as QuestionEditRk } from "./Modal/QuestionEditRk";
 export { default as TextAreaRk } from "./Inputs/TextAreaRk";
 export { default as TextInputRk } from "./Inputs/TextInputRk";
 export { default as CheckboxRk } from "./Inputs/CheckboxRk";
+export { default as SelectRk } from "./Inputs/SelectRk";
 export { default as QuestionBoxRk } from "./Question/QuestionBoxRk";
 export { default as IconRk } from "./Icon/IconRk";

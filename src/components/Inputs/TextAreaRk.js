@@ -3,7 +3,7 @@ import React from "react";
 const TextAreaRk = ({ maxLength, label, containerStyle, ...otherProps }) => {
   return (
     <div className="mb-2" style={containerStyle}>
-      <label className="form-label text-black">
+      <label className="form-label text-black" style={{ width: "100%" }}>
         {label}
         <textarea
           maxLength={maxLength ? maxLength : 500}

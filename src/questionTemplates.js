@@ -17,13 +17,11 @@ const template = {
   },
   number: {
     ...sameInAll("number"),
-    isStep: false,
-    step: 1,
     min: 0,
     max: 9,
   },
   // taqvim e shamsi ya miladi
-  date: { ...sameInAll("date"), calender: "" },
+  date: { ...sameInAll("date"), calendar: "shamsi" },
   // list e entekhabi
   checkbox: { ...sameInAll("checkbox"), options: [] },
   // gozine ei ya tak entekhabi
