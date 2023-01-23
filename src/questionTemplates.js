@@ -27,7 +27,7 @@ const template = {
   // gozine ei ya tak entekhabi
   radio: { ...sameInAll("radio"), options: [] },
   // pasvande file ro taein kone
-  file: { ...sameInAll("file"), extention: "" },
+  file: { ...sameInAll("file"), accept: "" },
   password: { ...sameInAll("password"), minChar: 0, maxChar: 10 },
   //anvae captcha: tarkibe harf / adad / harf or adad
   captcha: {

@@ -22,9 +22,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/buildform" element={<BuildFormPage />} />
-          <Route path="/buildprocess" element={<BuildProcessPage />} />
-          <Route path="/buildreport" element={<BuildReportPage />} />
+          <Route path="/build-form" element={<BuildFormPage />} />
+          <Route path="/build-process" element={<BuildProcessPage />} />
+          <Route path="/build-report" element={<BuildReportPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/forms" element={<FormsPage />} />
           <Route path="/processes" element={<ProcessesPage />} />

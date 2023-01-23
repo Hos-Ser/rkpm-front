@@ -1,18 +1,26 @@
 import React from "react";
 
-const CheckboxRk = ({ label, containerStyle, isSwitch, ...otherProps }) => {
+const CheckboxRk = ({
+  legend,
+  options = [],
+  containerStyle,
+  ...otherProps
+}) => {
   return (
-    <div className={`mb-2 ${isSwitch && "form-switch"}`} style={containerStyle}>
-      <label className="text-black">
-        {label}
-        <input
-          className="form-check-input me-2"
-          type={"checkbox"}
-          style={{ marginTop: 6 }}
-          {...otherProps}
-        />
-      </label>
-    </div>
+    <fieldset style={{ display: "grid", marginBottom: "0.5rem" }}>
+      <legend style={{ color: "black" }}>{legend}</legend>
+      {options.map((option, index) => (
+        <label key={index} className="text-black">
+          <input
+            className="form-check-input"
+            type={"checkbox"}
+            style={{ marginLeft: 10, marginTop: 6 }}
+            {...otherProps}
+          />
+          {option}
+        </label>
+      ))}
+    </fieldset>
   );
 };
 

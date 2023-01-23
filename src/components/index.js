@@ -1,11 +1,20 @@
 export { default as ButtonRk } from "./Button/ButtonRk";
-export { default as DashboardRk } from "./Sections/DashboardRk";
-export { default as ContentSectionRk } from "./Sections/ContentSectionRk";
-export { default as QuestionAddRk } from "./Modal/QuestionAddRk";
-export { default as QuestionEditRk } from "./Modal/QuestionEditRk";
+
+export { default as IconRk } from "./Icon/IconRk";
+
 export { default as TextAreaRk } from "./Inputs/TextAreaRk";
 export { default as TextInputRk } from "./Inputs/TextInputRk";
 export { default as CheckboxRk } from "./Inputs/CheckboxRk";
 export { default as SelectRk } from "./Inputs/SelectRk";
-export { default as QuestionBoxRk } from "./Question/QuestionBoxRk";
-export { default as IconRk } from "./Icon/IconRk";
+export { default as SwitchboxRk } from "./Inputs/SwitchboxRk";
+export { default as NumberInputRk } from "./Inputs/NumberInputRk";
+export { default as FileInputRk } from "./Inputs/FileInputRk";
+
+export { default as DashboardRk } from "./Sections/DashboardRk";
+export { default as ContentSectionRk } from "./Sections/ContentSectionRk";
+
+export { default as QuestionAddRk } from "./Modal/QuestionAddRk";
+export { default as QuestionEditRk } from "./Modal/QuestionEditRk";
+
+export { default as QuestionLiRk } from "./ListItems/QuestionLiRk";
+export { default as OptionLiRk } from "./ListItems/OptionLiRk";

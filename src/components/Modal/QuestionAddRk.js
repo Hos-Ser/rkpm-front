@@ -11,6 +11,8 @@ import {
   CheckboxRk,
   SelectRk,
   IconRk,
+  SwitchboxRk,
+  OptionLiRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
@@ -48,6 +50,18 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
       setOptionField("");
     }
   };
+  const handleEditOption = (option) => {
+    const index = question.options.findIndex((item) => item === option);
+    updateQuestion((draft) => {
+      draft.options[index] = option;
+    });
+  };
+  const handleRmoveOption = (option) => {
+    const index = question.options.findIndex((item) => item === option);
+    updateQuestion((draft) => {
+      draft.options.splice(index, 1);
+    });
+  };
   return (
     <>
       <div className="modal-bg" onClick={handleCloseModal} />
@@ -64,6 +78,7 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
               <TextInputRk
+                value={question.title}
                 autoFocus
                 onChange={handleInputChange("title")}
                 label={"عنوان سوال را وارد کنید"}
@@ -73,16 +88,16 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
             )}
             {"description" in question && (
               <TextAreaRk
+                value={question.description}
                 onChange={handleInputChange("description")}
                 label={"توضیحات سوال را وارد کنید"}
                 maxLength={1000}
               />
             )}
             {"required" in question && (
-              <CheckboxRk
+              <SwitchboxRk
                 label={"اجباری؟"}
                 role={"switch"}
-                isSwitch={true}
                 onChange={() =>
                   updateQuestion((draft) => {
                     draft.required = !draft.required;
@@ -102,22 +117,37 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
               />
             )}
             {"options" in question && (
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "9fr 1fr",
-                  placeItems: "center",
-                }}
-              >
-                <TextInputRk
-                  value={optionField}
-                  label={"گزینه ها را اضافه کنید"}
-                  onChange={handleOptionChange}
-                />
-                <span onClick={handleSaveOption}>
-                  <IconRk name={"plus"} />
-                </span>
-              </div>
+              <>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "9fr 1fr",
+                  }}
+                >
+                  <TextInputRk
+                    value={optionField}
+                    label={"گزینه ها را اضافه کنید"}
+                    onChange={handleOptionChange}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") handleSaveOption();
+                    }}
+                  />
+                  <span
+                    style={{ placeSelf: "center" }}
+                    onClick={handleSaveOption}
+                  >
+                    <IconRk name={"plus"} />
+                  </span>
+                </div>
+                {question.options.map((option, index) => (
+                  <OptionLiRk
+                    key={index}
+                    value={option}
+                    handleDelete={() => handleRmoveOption(option)}
+                    handleEdit={handleEditOption}
+                  />
+                ))}
+              </>
             )}
             <ButtonRk
               className="position-absolute"
@@ -128,9 +158,14 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
             </ButtonRk>
           </DashboardRk>
           <ContentSectionRk style={{ display: "grid", placeItems: "center" }}>
-            <TextInputRk
-              label={`${question.title} ${question.required ? "*" : ""}`}
-            />
+            {(qType === "text" || qType === "textarea") && (
+              <TextInputRk
+                label={`${question.title} ${question.required ? "*" : ""}`}
+              />
+            )}
+            {"options" in question && (
+              <CheckboxRk legend={question.title} options={question.options} />
+            )}
           </ContentSectionRk>
         </div>
       </div>

@@ -8,7 +8,7 @@ import {
   DashboardRk,
   QuestionAddRk,
   QuestionEditRk,
-  QuestionBoxRk,
+  QuestionLiRk,
   IconRk,
 } from "../components";
 
@@ -24,7 +24,7 @@ const BuildFormPage = () => {
   const items = questions.map((item) => {
     return (
       <li key={item.order} className="mb-2">
-        <QuestionBoxRk
+        <QuestionLiRk
           modalState={modalEdit}
           setModalState={setModalEdit}
           question={item}

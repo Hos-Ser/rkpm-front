@@ -11,7 +11,15 @@ import {
   MdTextSnippet,
   MdSettings,
 } from "react-icons/md";
-import { BiHash, BiUserCircle, BiPlusCircle } from "react-icons/bi";
+import {
+  BiHash,
+  BiUserCircle,
+  BiPlusCircle,
+  BiTrash,
+  BiPencil,
+  BiCheck,
+  BiXCircle,
+} from "react-icons/bi";
 import { FaRobot, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 // BiSelectMultiple
@@ -114,14 +122,58 @@ const IconRk = ({ style, name, ...otherProps }) => {
       return (
         <BiPlusCircle
           {...otherProps}
-          className="plus-icon"
+          className="plus-icon hover-icon"
+          style={{ ...style }}
+        />
+      );
+    case "trash":
+      return (
+        <BiTrash
+          {...otherProps}
+          className="selectable-icon hover-icon"
+          style={{ ...style }}
+        />
+      );
+    case "edit":
+      return (
+        <BiPencil
+          {...otherProps}
+          className="selectable-icon hover-icon"
+          style={{ ...style }}
+        />
+      );
+    case "check":
+      return (
+        <BiCheck
+          {...otherProps}
+          className="selectable-icon hover-icon"
+          style={{ ...style }}
+        />
+      );
+    case "x":
+      return (
+        <BiXCircle
+          {...otherProps}
+          className="selectable-icon hover-icon"
           style={{ ...style }}
         />
       );
     case "chevronUp":
-      return <FaChevronUp {...otherProps} style={{ ...style, margin: 3 }} />;
+      return (
+        <FaChevronUp
+          className="chevron-icon hover-icon"
+          {...otherProps}
+          style={style}
+        />
+      );
     case "chevronDown":
-      return <FaChevronDown {...otherProps} style={{ ...style, margin: 3 }} />;
+      return (
+        <FaChevronDown
+          {...otherProps}
+          className="chevron-icon hover-icon"
+          style={style}
+        />
+      );
     case "user":
       return <BiUserCircle {...otherProps} style={{ ...style, margin: 3 }} />;
 

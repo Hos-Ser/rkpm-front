@@ -7,13 +7,13 @@ const HomePage = () => {
   return (
     <>
       <DashboardRk>
-        <Link to={"/buildform"} className="nav-link">
+        <Link to={"/build-form"} className="nav-link">
           افرودن فرم
         </Link>
-        <Link to={"/buildreport"} className="nav-link">
+        <Link to={"/build-report"} className="nav-link">
           افرودن گزارش
         </Link>
-        <Link to={"/buildprocess"} className="nav-link">
+        <Link to={"/build-process"} className="nav-link">
           افرودن فرایند
         </Link>
         <Link to={"/forms"} className="nav-link">

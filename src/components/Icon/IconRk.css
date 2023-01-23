@@ -40,7 +40,19 @@
   height: 30px;
   fill: black;
 }
-.plus-icon:hover {
+
+.selectable-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: black;
+}
+
+.chevron-icon {
+  fill: black;
+  margin: 3px;
+}
+
+.hover-icon:hover {
   fill: gray;
   cursor: pointer;
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { CheckboxRk, IconRk } from "../index";
+import { SwitchboxRk, IconRk } from "../index";
 import {
   questionReqToggled,
   questionReordered,
 } from "../../stateStore/formReducer";
 
-const QuestionBoxRk = ({
+const QuestionLiRk = ({
   modalState,
   setModalState,
   question,
@@ -45,11 +45,10 @@ const QuestionBoxRk = ({
         {question.title}
       </span>
       <span onClick={(e) => e.stopPropagation()} style={{ justifySelf: "end" }}>
-        <CheckboxRk
-          containerStyle={{ display: "inline", paddingLeft: 50 }}
+        <SwitchboxRk
+          containerStyle={{ display: "inline" }}
           label={"اجباری؟"}
           role={"switch"}
-          isSwitch={true}
           onChange={() => {
             dispatch(questionReqToggled(question.order));
           }}
@@ -65,7 +64,6 @@ const QuestionBoxRk = ({
             );
           }}
           name={"chevronUp"}
-          style={{ cursor: "pointer" }}
         />
         <IconRk
           onClick={() => {
@@ -77,11 +75,10 @@ const QuestionBoxRk = ({
             );
           }}
           name={"chevronDown"}
-          style={{ cursor: "pointer" }}
         />
       </span>
     </div>
   );
 };
 
-export default QuestionBoxRk;
+export default QuestionLiRk;

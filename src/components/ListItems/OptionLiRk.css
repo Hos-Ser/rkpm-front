@@ -1,0 +1,16 @@
+.container-li {
+  display: grid;
+  grid-template-columns: 12fr 1fr 1fr;
+  place-items: center;
+  column-gap: 0.1rem;
+}
+
+.form-control:disabled {
+  background-color: #0000;
+}
+
+.input {
+  color: black;
+  border: none;
+  height: 1.6rem;
+}
