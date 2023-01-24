@@ -50,14 +50,12 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
       setOptionField("");
     }
   };
-  const handleEditOption = (option) => {
-    const index = question.options.findIndex((item) => item === option);
+  const handleOnchangeOption = (e, index) => {
     updateQuestion((draft) => {
-      draft.options[index] = option;
+      draft.options[index] = e.target.value;
     });
   };
-  const handleRmoveOption = (option) => {
-    const index = question.options.findIndex((item) => item === option);
+  const handleRmoveOption = (index) => {
     updateQuestion((draft) => {
       draft.options.splice(index, 1);
     });
@@ -143,8 +141,8 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
                   <OptionLiRk
                     key={index}
                     value={option}
-                    handleDelete={() => handleRmoveOption(option)}
-                    handleEdit={handleEditOption}
+                    handleDelete={() => handleRmoveOption(index)}
+                    onChange={(e) => handleOnchangeOption(e, index)}
                   />
                 ))}
               </>

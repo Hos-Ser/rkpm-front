@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { IconRk } from "../index";
 import "./OptionLiRk.css";
 
-const OptionLiRk = ({ value, onChange, handleEdit, handleDelete }) => {
+const OptionLiRk = ({ value, onChange, handleDelete }) => {
   const [isDisable, setIsDisable] = useState(true);
   const inputRef = useRef(null);
 
@@ -26,12 +26,9 @@ const OptionLiRk = ({ value, onChange, handleEdit, handleDelete }) => {
         }}
         onBlur={(e) => {
           handleDisable();
-          handleEdit(value);
         }}
         disabled={isDisable}
-        onChange={(e) => {
-          handleEdit(e.target.value);
-        }}
+        onChange={onChange}
       />
       {isDisable ? (
         <IconRk
@@ -44,7 +41,6 @@ const OptionLiRk = ({ value, onChange, handleEdit, handleDelete }) => {
         <IconRk
           name={"x"}
           onClick={() => {
-            handleEdit();
             handleDisable();
           }}
         />

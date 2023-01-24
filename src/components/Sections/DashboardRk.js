@@ -1,6 +1,13 @@
 import React from "react";
 
-const DashboardRk = ({ className, children, style, ...otherProps }) => {
+const DashboardRk = ({
+  className,
+  children,
+  header,
+  footer,
+  style,
+  ...otherProps
+}) => {
   return (
     <div
       className={`flex-column border-start rk-border-gray flex-shrink-0 p-3 ${className}`}
