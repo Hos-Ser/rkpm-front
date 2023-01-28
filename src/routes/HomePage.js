@@ -1,30 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { ContentSectionRk, DashboardRk } from "../components";
+import { ContentSectionRk, DashboardRk, DashbordLiRk } from "../components";
+
+const linksList = [
+  { to: "/build-form", label: "افرودن فرم" },
+  { to: "/build-process", label: "افرودن فرایند" },
+  { to: "/build-report", label: " افرودن گزارش" },
+  { to: "/forms", label: "مدیریت فرم ها" },
+  { to: "/processes", label: "مدیریت فرایند ها" },
+  { to: "/reports", label: "مدیریت گزارش ها" },
+];
 
 const HomePage = () => {
   return (
     <>
       <DashboardRk>
-        <Link to={"/build-form"} className="nav-link">
-          افرودن فرم
-        </Link>
-        <Link to={"/build-report"} className="nav-link">
-          افرودن گزارش
-        </Link>
-        <Link to={"/build-process"} className="nav-link">
-          افرودن فرایند
-        </Link>
-        <Link to={"/forms"} className="nav-link">
-          مدیریت فرم ها
-        </Link>
-        <Link to={"/reports"} className="nav-link">
-          مدیریت گزارش ها
-        </Link>
-        <Link to={"/processes"} className="nav-link">
-          مدیریت فرایند ها
-        </Link>
+        <div style={{ width: "100%" }}>
+          {linksList.map((item, index) => {
+            return (
+              <DashbordLiRk key={index}>
+                <Link to={item.to} className="nav-link">
+                  {item.label}
+                </Link>
+              </DashbordLiRk>
+            );
+          })}
+        </div>
       </DashboardRk>
       <ContentSectionRk></ContentSectionRk>
     </>

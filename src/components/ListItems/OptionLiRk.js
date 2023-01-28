@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import { IconRk } from "../index";
-import "./OptionLiRk.css";
+import "./listItems.css";
 
 const OptionLiRk = ({ value, onChange, handleDelete }) => {
   const [isDisable, setIsDisable] = useState(true);
@@ -16,7 +16,7 @@ const OptionLiRk = ({ value, onChange, handleDelete }) => {
   };
 
   return (
-    <div className="container-li">
+    <div className="option-container">
       <input
         ref={inputRef}
         className="form-control input"
@@ -24,7 +24,7 @@ const OptionLiRk = ({ value, onChange, handleDelete }) => {
         onKeyUp={(e) => {
           if (e.key === "Enter") handleDisable();
         }}
-        onBlur={(e) => {
+        onBlur={() => {
           handleDisable();
         }}
         disabled={isDisable}

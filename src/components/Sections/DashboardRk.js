@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Sections.css";
+
 const DashboardRk = ({
   className,
   children,
@@ -10,13 +12,8 @@ const DashboardRk = ({
 }) => {
   return (
     <div
-      className={`flex-column border-start rk-border-gray flex-shrink-0 p-3 ${className}`}
-      style={{
-        alignContent: "center",
-        width: "20%",
-        overflow: "auto",
-        ...style,
-      }}
+      className={`flex-column border-start rk-border-gray flex-shrink-0 dashboard-rk ${className}`}
+      style={style}
       {...otherProps}
     >
       {children}

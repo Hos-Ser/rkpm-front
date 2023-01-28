@@ -3,14 +3,25 @@ import { useSelector } from "react-redux";
 // import { useImmer } from "use-immer";
 
 import {
-  ButtonRk,
   ContentSectionRk,
   DashboardRk,
   QuestionAddRk,
   QuestionEditRk,
   QuestionLiRk,
-  IconRk,
+  DashbordLiRk,
 } from "../components";
+
+const OpList = [
+  { type: "text", label: "سوالات متنی" },
+  { type: "number", label: "عددی" },
+  { type: "date", label: "تاریخ" },
+  { type: "checkbox", label: "لیست انتخابی" },
+  { type: "radio", label: "گزینه ای" },
+  { type: "file", label: "فایل" },
+  { type: "password", label: "رمز" },
+  { type: "textarea", label: "متنی پاسخ بلند" },
+  { type: "captcha", label: "کپچا" },
+];
 
 const BuildFormPage = () => {
   const [modal, setModal] = useState({ isVisibile: false, qType: "" });
@@ -21,18 +32,6 @@ const BuildFormPage = () => {
   });
   const questions = useSelector((state) => state.form.questions);
 
-  const items = questions.map((item) => {
-    return (
-      <li key={item.order} className="mb-2">
-        <QuestionLiRk
-          modalState={modalEdit}
-          setModalState={setModalEdit}
-          question={item}
-        />
-      </li>
-    );
-  });
-
   const handleOpenModal = (qType) => {
     setModal({ isVisibile: true, qType });
   };
@@ -40,94 +39,39 @@ const BuildFormPage = () => {
   return (
     <>
       <DashboardRk>
-        <ButtonRk
-          icon={<IconRk name="text" />}
-          onClick={() => {
-            handleOpenModal("text");
-          }}
-          style={{ width: "100%" }}
-        >
-          سوالات متنی
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="number" />}
-          onClick={() => {
-            handleOpenModal("number");
-          }}
-          style={{ width: "100%" }}
-        >
-          عددی
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="date" />}
-          onClick={() => {
-            handleOpenModal("date");
-          }}
-          style={{ width: "100%" }}
-        >
-          تاریخ
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="checkbox" />}
-          onClick={() => {
-            handleOpenModal("checkbox");
-          }}
-          style={{ width: "100%" }}
-        >
-          لیست انتخابی
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="radio" />}
-          onClick={() => {
-            handleOpenModal("radio");
-          }}
-          style={{ width: "100%" }}
-        >
-          گزینه ای
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="file" />}
-          onClick={() => {
-            handleOpenModal("file");
-          }}
-          style={{ width: "100%" }}
-        >
-          فایل
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="password" />}
-          onClick={() => {
-            handleOpenModal("password");
-          }}
-          style={{ width: "100%" }}
-        >
-          رمز
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="textarea" />}
-          onClick={() => {
-            handleOpenModal("textarea");
-          }}
-          style={{ width: "100%" }}
-        >
-          متنی پاسخ بلند
-        </ButtonRk>
-        <ButtonRk
-          icon={<IconRk name="captcha" />}
-          onClick={() => {
-            handleOpenModal("captcha");
-          }}
-          style={{ width: "100%" }}
-        >
-          کپچا
-        </ButtonRk>
-        <hr />
-        <ButtonRk icon={<IconRk name="setting" />} style={{ width: "100%" }}>
-          تنظیمات فرم
-        </ButtonRk>
+        <div style={{ width: "100%" }}>
+          {OpList.map((item, index) => {
+            return (
+              <DashbordLiRk
+                key={index}
+                icon={item.type}
+                onClick={() => {
+                  handleOpenModal("text");
+                }}
+              >
+                {item.label}
+              </DashbordLiRk>
+            );
+          })}
+        </div>
+        <DashbordLiRk icon={"setting"} containerStyle={{ placeSelf: "end" }}>
+          {"تنظیمات"}
+        </DashbordLiRk>
       </DashboardRk>
       <ContentSectionRk>
-        <ul style={{ listStyle: "persian" }}>{items}</ul>
+        <ul style={{ listStyle: "persian" }}>
+          {questions.map((item) => {
+            return (
+              <li key={item.order} className="mb-2">
+                <QuestionLiRk
+                  modalState={modalEdit}
+                  setModalState={setModalEdit}
+                  question={item}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </ContentSectionRk>
       {modal.isVisibile && (
         <QuestionAddRk

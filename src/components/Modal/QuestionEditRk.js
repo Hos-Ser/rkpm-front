@@ -72,14 +72,7 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
       <div className="modal-bg" onClick={handleCloseModal} />
       <div className="centered">
         <div className="my-modal">
-          <DashboardRk
-            className={`${dBclass}`}
-            style={{
-              borderTopRightRadius: 16,
-              borderBottomRightRadius: 16,
-              width: "40%",
-            }}
-          >
+          <DashboardRk className={`modal-db ${dBclass}`}>
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
               <TextInputRk

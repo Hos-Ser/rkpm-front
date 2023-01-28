@@ -1,0 +1,41 @@
+/* dashbord */
+.dashboard-container {
+  display: grid;
+  align-content: center;
+  width: 100%;
+  margin: 0rem 0.2rem 0.6rem 0.2rem;
+  padding: 0.2rem;
+  border-bottom: 1px;
+  border-style: none none solid none;
+  border-color: #ced4da;
+}
+
+.single-column {
+  grid-template-columns: 1fr;
+}
+
+.double-column {
+  grid-template-columns: 1fr 9fr;
+}
+
+.dashboard-container:hover {
+  cursor: pointer;
+}
+
+/* option */
+.option-container {
+  display: grid;
+  grid-template-columns: 12fr 1fr 1fr;
+  place-items: center;
+  column-gap: 0.1rem;
+}
+
+.form-control:disabled {
+  background-color: #0000;
+}
+
+.input {
+  color: black;
+  border: none;
+  height: 1.6rem;
+}

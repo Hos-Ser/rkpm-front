@@ -18,3 +18,4 @@ export { default as QuestionEditRk } from "./Modal/QuestionEditRk";
 
 export { default as QuestionLiRk } from "./ListItems/QuestionLiRk";
 export { default as OptionLiRk } from "./ListItems/OptionLiRk";
+export { default as DashbordLiRk } from "./ListItems/DashbordLiRk";

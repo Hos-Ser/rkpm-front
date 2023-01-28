@@ -1,0 +1,8 @@
+/* dashboard */
+.dashboard-rk {
+  display: grid;
+  place-items: baseline;
+  width: 20%;
+  overflow: auto;
+  padding: 1rem;
+}
