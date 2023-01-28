@@ -13,6 +13,7 @@ import {
   IconRk,
   SwitchboxRk,
   OptionLiRk,
+  NumberInputRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionAdded } from "../../stateStore/formReducer";
@@ -30,17 +31,18 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
       });
     };
   };
-  const handleOptionChange = (e) => {
-    setOptionField(e.target.value);
+  const handleMinMaxChange = (whatsChanging) => {
+    return (e) => {
+      updateQuestion((draft) => {
+        draft[whatsChanging] = parseInt(e.target.value);
+      });
+    };
   };
   const handleCloseModal = () => {
     setVisible((modalState.isVisibile = false));
   };
-  const handleSaveQuestion = () => {
-    if (question.title !== "") {
-      dispatch(questionAdded({ question }));
-      setVisible((modalState.isVisibile = false));
-    }
+  const handleOptionChange = (e) => {
+    setOptionField(e.target.value);
   };
   const handleSaveOption = () => {
     if (optionField !== "") {
@@ -59,6 +61,12 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
     updateQuestion((draft) => {
       draft.options.splice(index, 1);
     });
+  };
+  const handleSaveQuestion = () => {
+    if (question.title !== "") {
+      dispatch(questionAdded({ question }));
+      setVisible((modalState.isVisibile = false));
+    }
   };
   return (
     <>
@@ -101,6 +109,32 @@ const QuestionAddRk = ({ dBclass, modalState, setVisible, qType }) => {
                     draft.required = !draft.required;
                   })
                 }
+              />
+            )}
+            {"min" in question && (
+              <NumberInputRk
+                label={"حداقل"}
+                value={question.min}
+                onChange={handleMinMaxChange("min")}
+                max={question.max - 1}
+                style={{
+                  display: "inline",
+                  width: "auto",
+                  marginRight: "0.5rem",
+                }}
+              />
+            )}
+            {"max" in question && (
+              <NumberInputRk
+                label={"حداکثر"}
+                value={question.max}
+                onChange={handleMinMaxChange("max")}
+                min={question.min + 1}
+                style={{
+                  display: "inline",
+                  width: "auto",
+                  marginRight: "0.5rem",
+                }}
               />
             )}
             {"calendar" in question && (

@@ -28,14 +28,14 @@ const template = {
   radio: { ...sameInAll("radio"), options: [] },
   // pasvande file ro taein kone
   file: { ...sameInAll("file"), accept: "" },
-  password: { ...sameInAll("password"), minChar: 0, maxChar: 10 },
+  password: { ...sameInAll("password"), min: 0, max: 10 },
   //anvae captcha: tarkibe harf / adad / harf or adad
   captcha: {
     ...sameInAll("captcha"),
     captchaType: "",
   },
   // these dont have a standard input type
-  textarea: { ...sameInAll("textarea"), maxlength: 500 },
+  textarea: { ...sameInAll("textarea"), min: 0, max: 500 },
 };
 
 export default template;

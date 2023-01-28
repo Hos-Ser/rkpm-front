@@ -11,6 +11,9 @@ import {
   CheckboxRk,
   SelectRk,
   IconRk,
+  SwitchboxRk,
+  OptionLiRk,
+  NumberInputRk,
 } from "../index";
 import "./QuestionModalRk.css";
 import { questionEdited } from "../../stateStore/formReducer";
@@ -27,17 +30,18 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
       });
     };
   };
+  const handleMinMaxChange = (whatsChanging) => {
+    return (e) => {
+      updateQuestion((draft) => {
+        draft[whatsChanging] = parseInt(e.target.value);
+      });
+    };
+  };
   const handleOptionChange = (e) => {
     setOptionField(e.target.value);
   };
   const handleCloseModal = () => {
     setVisible((modalState.isVisibile = false));
-  };
-  const handleSaveQuestion = () => {
-    if (question.title !== "") {
-      dispatch(questionEdited({ question }));
-      setVisible((modalState.isVisibile = false));
-    }
   };
   const handleSaveOption = () => {
     if (optionField !== "") {
@@ -45,6 +49,22 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
         draft.options.push(optionField);
       });
       setOptionField("");
+    }
+  };
+  const handleOnchangeOption = (e, index) => {
+    updateQuestion((draft) => {
+      draft.options[index] = e.target.value;
+    });
+  };
+  const handleRmoveOption = (index) => {
+    updateQuestion((draft) => {
+      draft.options.splice(index, 1);
+    });
+  };
+  const handleSaveQuestion = () => {
+    if (question.title !== "") {
+      dispatch(questionEdited({ question }));
+      setVisible((modalState.isVisibile = false));
     }
   };
   return (
@@ -63,8 +83,8 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
             <ButtonRk className="btn-close mb-2" onClick={handleCloseModal} />
             {"title" in question && (
               <TextInputRk
-                autoFocus
                 value={question.title}
+                autoFocus
                 onChange={handleInputChange("title")}
                 label={"عنوان سوال را وارد کنید"}
                 maxLength={500}
@@ -80,16 +100,40 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
               />
             )}
             {"required" in question && (
-              <CheckboxRk
-                checked={question.required}
+              <SwitchboxRk
                 label={"اجباری؟"}
                 role={"switch"}
-                isSwitch={true}
                 onChange={() =>
                   updateQuestion((draft) => {
                     draft.required = !draft.required;
                   })
                 }
+              />
+            )}
+            {"min" in question && (
+              <NumberInputRk
+                label={"حداقل"}
+                value={question.min}
+                onChange={handleMinMaxChange("min")}
+                max={question.max - 1}
+                style={{
+                  display: "inline",
+                  width: "auto",
+                  marginRight: "0.5rem",
+                }}
+              />
+            )}
+            {"max" in question && (
+              <NumberInputRk
+                label={"حداکثر"}
+                value={question.max}
+                onChange={handleMinMaxChange("max")}
+                min={question.min + 1}
+                style={{
+                  display: "inline",
+                  width: "auto",
+                  marginRight: "0.5rem",
+                }}
               />
             )}
             {"calendar" in question && (
@@ -104,22 +148,37 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
               />
             )}
             {"options" in question && (
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "9fr 1fr",
-                  placeItems: "center",
-                }}
-              >
-                <TextInputRk
-                  value={optionField}
-                  label={"گزینه ها را اضافه کنید"}
-                  onChange={handleOptionChange}
-                />
-                <span onClick={handleSaveOption}>
-                  <IconRk name={"plus"} />
-                </span>
-              </div>
+              <>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "9fr 1fr",
+                  }}
+                >
+                  <TextInputRk
+                    value={optionField}
+                    label={"گزینه ها را اضافه کنید"}
+                    onChange={handleOptionChange}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") handleSaveOption();
+                    }}
+                  />
+                  <span
+                    style={{ placeSelf: "center" }}
+                    onClick={handleSaveOption}
+                  >
+                    <IconRk name={"plus"} />
+                  </span>
+                </div>
+                {question.options.map((option, index) => (
+                  <OptionLiRk
+                    key={index}
+                    value={option}
+                    handleDelete={() => handleRmoveOption(index)}
+                    onChange={(e) => handleOnchangeOption(e, index)}
+                  />
+                ))}
+              </>
             )}
             <ButtonRk
               className="position-absolute"
@@ -130,9 +189,15 @@ const QuestionEditRk = ({ dBclass, modalState, setVisible }) => {
             </ButtonRk>
           </DashboardRk>
           <ContentSectionRk style={{ display: "grid", placeItems: "center" }}>
-            <TextInputRk
-              label={`${question.title} ${question.required ? "*" : ""}`}
-            />
+            {(question.questionType === "text" ||
+              question.questionType === "textarea") && (
+              <TextInputRk
+                label={`${question.title} ${question.required ? "*" : ""}`}
+              />
+            )}
+            {"options" in question && (
+              <CheckboxRk legend={question.title} options={question.options} />
+            )}
           </ContentSectionRk>
         </div>
       </div>
